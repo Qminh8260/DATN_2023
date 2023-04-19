@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://World/background.jpg" type="Texture" id=1]
+[ext_resource path="res://Music and Sounds/oversound.wav" type="AudioStream" id=2]
+[ext_resource path="res://Font/pressed.stylebox" type="StyleBox" id=3]
+[ext_resource path="res://Font/disabled.stylebox" type="StyleBox" id=4]
+[ext_resource path="res://Font/hover.stylebox" type="StyleBox" id=5]
+[ext_resource path="res://Font/normal.stylebox" type="StyleBox" id=6]
+[ext_resource path="res://Font/focused.stylebox" type="StyleBox" id=7]
+[ext_resource path="res://GameOver.gd" type="Script" id=8]
+
+[node name="GameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 321.0
+margin_bottom = 175.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -46.5
+margin_right = 50.0
+margin_bottom = -30.5
+custom_colors/font_color = Color( 0.956863, 0, 0, 1 )
+text = "GAME OVER"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+
+[node name="Button" type="Button" parent="."]
+margin_left = 120.0
+margin_top = 75.0
+margin_right = 203.0
+margin_bottom = 95.0
+input_pass_on_modal_close_click = false
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.596078, 0.596078, 0.784314, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/disabled = ExtResource( 4 )
+custom_styles/normal = ExtResource( 6 )
+text = "Back menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
